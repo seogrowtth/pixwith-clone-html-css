@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-image.jpg";
 
 export const Hero = () => {
   return (
@@ -35,12 +34,63 @@ export const Hero = () => {
         </div>
         
         <div className="relative max-w-5xl mx-auto">
-          <img 
-            src={heroImage} 
-            alt="AI Video Generation Interface" 
-            className="w-full rounded-2xl shadow-card animate-float border border-border/50"
-          />
-          <div className="absolute inset-0 bg-gradient-primary opacity-20 rounded-2xl"></div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative">
+              <video 
+                src="https://pixwith.ai/v/youtubers.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-2xl shadow-card border border-border/50"
+              />
+              <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-lg">
+                <span className="text-sm font-semibold text-foreground">YouTubers & Influencers</span>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <video 
+                src="https://pixwith.ai/v/content_creator.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-2xl shadow-card border border-border/50"
+              />
+              <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-lg">
+                <span className="text-sm font-semibold text-foreground">Content Creators</span>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <video 
+                src="https://pixwith.ai/v/brand_marketing.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-2xl shadow-card border border-border/50"
+              />
+              <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-lg">
+                <span className="text-sm font-semibold text-foreground">Brand Marketing</span>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <video 
+                src="https://pixwith.ai/v/education_training.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-2xl shadow-card border border-border/50"
+              />
+              <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-3 py-2 rounded-lg">
+                <span className="text-sm font-semibold text-foreground">Education & Training</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
