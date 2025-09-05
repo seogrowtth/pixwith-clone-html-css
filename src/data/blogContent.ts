@@ -1,5 +1,5 @@
 export const blogContent = {
-  "best-ai-tools-animate-images-videos-2025": `
+  "best-ai-tools-animate-images-videos-2025-guide": `
 # Best AI Tools to Animate Images into Videos (2025 Guide)
 
 The landscape of AI-powered image-to-video animation has evolved dramatically in 2025, with numerous platforms offering sophisticated tools that transform static images into dynamic, engaging videos. Whether you're a content creator, marketer, or artist, choosing the right AI tool can significantly impact your workflow and results. This comprehensive guide examines the top AI platforms that are leading the revolution in image animation.

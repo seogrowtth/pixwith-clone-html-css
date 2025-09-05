@@ -34,13 +34,69 @@ const BlogPost = () => {
       readTime: "10 min read",
       category: "Tutorial",
       image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&h=400&fit=crop"
+    },
+    "top-5-motion-styles-ai-video-generators": {
+      title: "Top 5 Motion Styles Every Creator Should Try with AI Video Generators",
+      author: "Dr. Alex Kim",
+      date: "March 8, 2025",
+      readTime: "7 min read",
+      category: "Creative",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop"
+    },
+    "why-short-form-video-beats-static-images-engagement": {
+      title: "Why Short-Form Video Beats Static Images for Engagement",
+      author: "Michael Park",
+      date: "March 5, 2025",
+      readTime: "5 min read",
+      category: "Analysis",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop"
+    },
+    "image-video-ai-vs-traditional-animation": {
+      title: "Image to Video AI vs Traditional Animation: Which is Right for You?",
+      author: "Lisa Thompson",
+      date: "March 3, 2025",
+      readTime: "9 min read",
+      category: "Comparison",
+      image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop"
+    },
+    "future-ai-video-generation-photos-hollywood-films": {
+      title: "The Future of AI Video Generation: From Photos to Hollywood-Level Films",
+      author: "Robert Chen",
+      date: "March 1, 2025",
+      readTime: "8 min read",
+      category: "Technology",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop"
+    },
+    "artists-designers-image-video-ai-portfolios": {
+      title: "How Artists & Designers Are Using Image to Video AI to Showcase Portfolios",
+      author: "Emma Davis",
+      date: "February 28, 2025",
+      readTime: "6 min read",
+      category: "Portfolio",
+      image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=400&fit=crop"
+    },
+    "10-creative-marketing-campaigns-image-video-ai": {
+      title: "10 Creative Marketing Campaigns Powered by Image to Video AI",
+      author: "David Wilson",
+      date: "February 25, 2025",
+      readTime: "7 min read",
+      category: "Case Study",
+      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=400&fit=crop"
+    },
+    "choosing-best-ai-image-animator-comparison": {
+      title: "Choosing the Best AI Image Animator: Features, Specs, and Pricing Compared",
+      author: "Sophie Martinez",
+      date: "February 22, 2025",
+      readTime: "12 min read",
+      category: "Review",
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop"
     }
   };
 
   const post = slug ? blogPosts[slug as keyof typeof blogPosts] : null;
   const content = slug ? blogContent[slug as keyof typeof blogContent] : null;
 
-  if (!post || !content) {
+  if (!post) {
     return (
       <div className="min-h-screen">
         <Navigation />
@@ -48,7 +104,7 @@ const BlogPost = () => {
           <div className="container mx-auto">
             <h1 className="text-4xl font-bold mb-6">Blog Post Not Found</h1>
             <p className="text-muted-foreground mb-8">
-              The blog post you're looking for doesn't exist or is still being written.
+              The blog post you're looking for doesn't exist.
             </p>
             <Link to="/blog">
               <Button className="bg-gradient-primary text-primary-foreground">
@@ -58,6 +114,85 @@ const BlogPost = () => {
             </Link>
           </div>
         </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  // Show coming soon message for posts without content
+  if (!content) {
+    return (
+      <div className="min-h-screen">
+        <Navigation />
+        
+        {/* Hero Section */}
+        <section className="pt-32 pb-12 px-6">
+          <div className="container mx-auto">
+            <Link to="/blog" className="inline-flex items-center text-primary hover:text-primary/80 mb-6 transition-colors">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Blog
+            </Link>
+            
+            <div className="max-w-4xl mx-auto">
+              <Badge className="mb-4 bg-gradient-secondary text-secondary-foreground">
+                {post.category}
+              </Badge>
+              
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text leading-tight">
+                {post.title}
+              </h1>
+              
+              <div className="flex flex-wrap items-center gap-6 text-muted-foreground mb-8">
+                <div className="flex items-center space-x-2">
+                  <User className="w-4 h-4" />
+                  <span>{post.author}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>{post.date}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Clock className="w-4 h-4" />
+                  <span>{post.readTime}</span>
+                </div>
+              </div>
+              
+              <img 
+                src={post.image} 
+                alt={post.title}
+                className="w-full h-64 md:h-96 object-cover rounded-lg border border-border mb-8"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Coming Soon Section */}
+        <section className="pb-20 px-6">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="bg-card/50 border border-border rounded-lg p-12">
+                <h2 className="text-3xl font-bold mb-4 gradient-text">Coming Soon!</h2>
+                <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  This comprehensive article is currently being written by our expert team. 
+                  Check back soon for in-depth insights on {post.title.toLowerCase()}.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a href="https://pixwith.ai/" target="_blank" rel="noopener noreferrer">
+                    <Button className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-button">
+                      Try Pixwith.AI Now
+                    </Button>
+                  </a>
+                  <Link to="/blog">
+                    <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                      Browse Other Articles
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <Footer />
       </div>
     );
