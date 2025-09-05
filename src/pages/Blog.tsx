@@ -4,11 +4,13 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, User, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   const blogPosts = [
     {
       title: "Best AI Tools to Animate Images into Videos (2025 Guide)",
+      slug: "best-ai-tools-animate-images-videos-2025-guide",
       excerpt: "Discover the top AI-powered platforms that are revolutionizing image-to-video animation with cutting-edge technology and user-friendly interfaces.",
       author: "Sarah Chen",
       date: "March 15, 2025",
@@ -18,6 +20,7 @@ const Blog = () => {
     },
     {
       title: "How Image to Video AI is Transforming Social Media Marketing",
+      slug: "how-image-video-ai-transforming-social-media-marketing",
       excerpt: "Explore how brands are leveraging AI video generation to create engaging social media content that drives higher engagement rates.",
       author: "Mark Rodriguez", 
       date: "March 12, 2025",
@@ -27,6 +30,7 @@ const Blog = () => {
     },
     {
       title: "Step-by-Step: How to Turn a Still Photo into a Cinematic Video",
+      slug: "step-by-step-still-photo-cinematic-video",
       excerpt: "A comprehensive tutorial on transforming ordinary photographs into professional-quality cinematic videos using AI technology.",
       author: "Jennifer Walsh",
       date: "March 10, 2025", 
@@ -36,6 +40,7 @@ const Blog = () => {
     },
     {
       title: "Top 5 Motion Styles Every Creator Should Try with AI Video Generators",
+      slug: "top-5-motion-styles-ai-video-generators",
       excerpt: "Master the essential motion styles that will elevate your content and captivate your audience across different platforms.",
       author: "Dr. Alex Kim",
       date: "March 8, 2025",
@@ -45,6 +50,7 @@ const Blog = () => {
     },
     {
       title: "Why Short-Form Video Beats Static Images for Engagement",
+      slug: "why-short-form-video-beats-static-images-engagement",
       excerpt: "Data-driven insights into why video content consistently outperforms static images in user engagement and conversion rates.",
       author: "Michael Park",
       date: "March 5, 2025",
@@ -54,6 +60,7 @@ const Blog = () => {
     },
     {
       title: "Image to Video AI vs Traditional Animation: Which is Right for You?",
+      slug: "image-video-ai-vs-traditional-animation",
       excerpt: "Compare the pros, cons, costs, and results of AI-generated videos versus traditional animation methods for different use cases.",
       author: "Lisa Thompson",
       date: "March 3, 2025",
@@ -63,6 +70,7 @@ const Blog = () => {
     },
     {
       title: "The Future of AI Video Generation: From Photos to Hollywood-Level Films",
+      slug: "future-ai-video-generation-photos-hollywood-films",
       excerpt: "Explore emerging technologies and trends that will shape the future of AI video generation and its impact on entertainment.",
       author: "Robert Chen",
       date: "March 1, 2025",
@@ -72,6 +80,7 @@ const Blog = () => {
     },
     {
       title: "How Artists & Designers Are Using Image to Video AI to Showcase Portfolios",
+      slug: "artists-designers-image-video-ai-portfolios",
       excerpt: "Real-world examples of creative professionals leveraging AI video generation to enhance their portfolio presentations.",
       author: "Emma Davis",
       date: "February 28, 2025",
@@ -81,6 +90,7 @@ const Blog = () => {
     },
     {
       title: "10 Creative Marketing Campaigns Powered by Image to Video AI",
+      slug: "10-creative-marketing-campaigns-image-video-ai",
       excerpt: "Inspiring case studies of innovative marketing campaigns that achieved remarkable results using AI-generated video content.",
       author: "David Wilson",
       date: "February 25, 2025",
@@ -90,6 +100,7 @@ const Blog = () => {
     },
     {
       title: "Choosing the Best AI Image Animator: Features, Specs, and Pricing Compared",
+      slug: "choosing-best-ai-image-animator-comparison",
       excerpt: "Comprehensive comparison of leading AI image animation platforms to help you make the best choice for your needs and budget.",
       author: "Sophie Martinez",
       date: "February 22, 2025",
@@ -142,35 +153,37 @@ const Blog = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
               <Card key={index} className="overflow-hidden bg-card/80 border-border hover:border-primary/50 hover:shadow-glow transition-all duration-300 group">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={post.image} 
-                    alt={post.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <Badge className="absolute top-3 left-3 bg-accent text-accent-foreground">
-                    {post.category}
-                  </Badge>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
-                    <div className="flex items-center space-x-4">
-                      <span>{post.author}</span>
-                      <span>{post.date}</span>
-                    </div>
-                    <span>{post.readTime}</span>
+                <Link to={`/blog/${post.slug}`} className="block">
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <Badge className="absolute top-3 left-3 bg-accent text-accent-foreground">
+                      {post.category}
+                    </Badge>
                   </div>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary hover:text-primary/80">
-                    Read More
-                    <ArrowRight className="w-3 h-3 ml-1" />
-                  </Button>
-                </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2 cursor-pointer">
+                      {post.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                      <div className="flex items-center space-x-4">
+                        <span>{post.author}</span>
+                        <span>{post.date}</span>
+                      </div>
+                      <span>{post.readTime}</span>
+                    </div>
+                    <Button variant="ghost" size="sm" className="p-0 h-auto text-primary hover:text-primary/80">
+                      Read More
+                      <ArrowRight className="w-3 h-3 ml-1" />
+                    </Button>
+                  </div>
+                </Link>
               </Card>
             ))}
           </div>
