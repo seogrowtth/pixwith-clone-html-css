@@ -56,9 +56,11 @@ export const MotionStylesSection = () => {
             Explore our comprehensive library of motion styles and effects. Each style can be customized 
             to match your creative vision and brand aesthetic.
           </p>
-          <Button className="bg-gradient-accent text-accent-foreground font-semibold hover:opacity-90 shadow-button">
-            Explore All Styles
-          </Button>
+          <a href="https://pixwith.ai/" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-gradient-accent text-accent-foreground font-semibold hover:opacity-90 shadow-button">
+              Explore All Styles
+            </Button>
+          </a>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

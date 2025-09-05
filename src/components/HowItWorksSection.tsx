@@ -41,9 +41,11 @@ export const HowItWorksSection = () => {
             Transform your static images into dynamic videos in just four simple steps. 
             No technical expertise required – our AI handles all the complexity.
           </p>
-          <Button className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 shadow-button">
-            Try It Now - Free
-          </Button>
+          <a href="https://pixwith.ai/" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 shadow-button">
+              Try It Now - Free
+            </Button>
+          </a>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">

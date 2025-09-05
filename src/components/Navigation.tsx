@@ -19,9 +19,11 @@ export const Navigation = () => {
           
           <div className="flex items-center space-x-4">
             <Button variant="ghost" className="text-muted-foreground">Sign In</Button>
-            <Button className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 shadow-button">
-              Get Started
-            </Button>
+            <a href="https://pixwith.ai/" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 shadow-button">
+                Get Started
+              </Button>
+            </a>
           </div>
         </div>
       </div>

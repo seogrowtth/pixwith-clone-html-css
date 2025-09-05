@@ -128,13 +128,15 @@ export const PricingSection = () => {
                 )}
               </div>
               
-              <Button 
-                variant={plan.buttonVariant}
-                className={`w-full ${plan.popular ? 'bg-gradient-primary text-primary-foreground shadow-button' : ''}`}
-                size="lg"
-              >
-                {plan.buttonText}
-              </Button>
+              <a href="https://pixwith.ai/" target="_blank" rel="noopener noreferrer" className="w-full">
+                <Button 
+                  variant={plan.buttonVariant}
+                  className={`w-full ${plan.popular ? 'bg-gradient-primary text-primary-foreground shadow-button' : ''}`}
+                  size="lg"
+                >
+                  {plan.buttonText}
+                </Button>
+              </a>
             </Card>
           ))}
         </div>
@@ -146,8 +148,12 @@ export const PricingSection = () => {
             and specialized support for unique business requirements.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="outline" size="lg">Schedule a Demo</Button>
-            <Button className="bg-gradient-secondary text-secondary-foreground" size="lg">Contact Enterprise Sales</Button>
+            <a href="https://pixwith.ai/" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="lg">Schedule a Demo</Button>
+            </a>
+            <a href="https://pixwith.ai/" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-gradient-secondary text-secondary-foreground" size="lg">Contact Enterprise Sales</Button>
+            </a>
           </div>
         </Card>
       </div>

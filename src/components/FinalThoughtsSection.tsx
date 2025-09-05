@@ -96,19 +96,23 @@ export const FinalThoughtsSection = () => {
             Start creating stunning AI videos today—no credit card required.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 shadow-button animate-pulse-glow px-8 py-6 text-lg"
-            >
-              Start Creating For Free
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-primary text-primary hover:bg-primary/10 px-8 py-6 text-lg"
-            >
-              View Pricing Plans
-            </Button>
+            <a href="https://pixwith.ai/" target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg" 
+                className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 shadow-button animate-pulse-glow px-8 py-6 text-lg w-full sm:w-auto"
+              >
+                Start Creating For Free
+              </Button>
+            </a>
+            <a href="#pricing">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-primary text-primary hover:bg-primary/10 px-8 py-6 text-lg w-full sm:w-auto"
+              >
+                View Pricing Plans
+              </Button>
+            </a>
           </div>
         </div>
       </div>

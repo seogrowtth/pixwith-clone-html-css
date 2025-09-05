@@ -16,12 +16,14 @@ export const Hero = () => {
             No editing skills needed. From simple prompts to professional HD videos in minutes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              size="lg" 
-              className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 shadow-button animate-pulse-glow px-8 py-6 text-lg"
-            >
-              Start Creating Now - Free
-            </Button>
+            <a href="https://pixwith.ai/" target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg" 
+                className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 shadow-button animate-pulse-glow px-8 py-6 text-lg w-full sm:w-auto"
+              >
+                Start Creating Now - Free
+              </Button>
+            </a>
             <Button 
               size="lg" 
               variant="outline" 
