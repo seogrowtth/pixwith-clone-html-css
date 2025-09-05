@@ -9,6 +9,114 @@ import { blogContent } from "@/data/blogContent";
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
 
+  // Function to render properly formatted content
+  const renderContent = (content: string) => {
+    const lines = content.trim().split('\n');
+    const elements: JSX.Element[] = [];
+    let key = 0;
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      
+      if (!line) continue;
+
+      // Main headings (# )
+      if (line.startsWith('# ')) {
+        elements.push(
+          <h1 key={key++} className="text-4xl font-bold gradient-text mb-8 mt-12 first:mt-0">
+            {line.substring(2)}
+          </h1>
+        );
+      }
+      // Subheadings (## )
+      else if (line.startsWith('## ')) {
+        elements.push(
+          <h2 key={key++} className="text-2xl font-semibold gradient-text mb-6 mt-10">
+            {line.substring(3)}
+          </h2>
+        );
+      }
+      // Sub-subheadings (### )
+      else if (line.startsWith('### ')) {
+        elements.push(
+          <h3 key={key++} className="text-xl font-semibold text-foreground mb-4 mt-8">
+            {line.substring(4)}
+          </h3>
+        );
+      }
+      // Bold text with colon (usually section intros)
+      else if (line.match(/^\*\*(.*?)\*\*:/)) {
+        const match = line.match(/^\*\*(.*?)\*\*:(.*)/);
+        if (match) {
+          elements.push(
+            <p key={key++} className="text-lg leading-relaxed mb-6 mt-6">
+              <strong className="text-primary font-semibold">{match[1]}:</strong>
+              {formatInlineText(match[2])}
+            </p>
+          );
+        }
+      }
+      // Regular paragraphs
+      else if (!line.startsWith('**') || !line.includes(':**')) {
+        // Group consecutive lines into paragraphs
+        let paragraph = line;
+        let j = i + 1;
+        
+        // Continue collecting lines until we hit an empty line or special formatting
+        while (j < lines.length && lines[j].trim() && 
+               !lines[j].startsWith('#') && 
+               !lines[j].match(/^\*\*(.*?)\*\*:/)) {
+          paragraph += ' ' + lines[j].trim();
+          j++;
+        }
+        
+        i = j - 1; // Update i to skip the lines we've processed
+        
+        elements.push(
+          <p key={key++} className="text-lg leading-relaxed mb-6 text-card-foreground">
+            {formatInlineText(paragraph)}
+          </p>
+        );
+      }
+    }
+
+    return elements;
+  };
+
+  // Function to format inline text (bold, italic)
+  const formatInlineText = (text: string) => {
+    const parts = [];
+    let lastIndex = 0;
+    let key = 0;
+
+    // Handle bold text
+    const boldRegex = /\*\*(.*?)\*\*/g;
+    let match;
+
+    while ((match = boldRegex.exec(text)) !== null) {
+      // Add text before the bold part
+      if (match.index > lastIndex) {
+        parts.push(text.substring(lastIndex, match.index));
+      }
+      
+      // Add the bold part
+      parts.push(
+        <strong key={key++} className="font-semibold text-foreground">
+          {match[1]}
+        </strong>
+      );
+      
+      lastIndex = boldRegex.lastIndex;
+    }
+
+    // Add remaining text
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : text;
+  };
+
   // Blog post metadata
   const blogPosts = {
     "best-ai-tools-animate-images-videos-2025-guide": {
@@ -247,25 +355,9 @@ const BlogPost = () => {
       <section className="pb-20 px-6">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <div 
-              className="prose prose-lg prose-invert max-w-none text-card-foreground"
-              style={{
-                lineHeight: '1.7',
-                color: 'hsl(var(--card-foreground))'
-              }}
-              dangerouslySetInnerHTML={{ 
-                __html: content.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br/>').replace(/^/, '<p>').replace(/$/, '</p>')
-                  .replace(/<p># /g, '<h1 class="text-3xl font-bold gradient-text mb-6 mt-12">')
-                  .replace(/<\/h1><\/p>/g, '</h1>')
-                  .replace(/<p>## /g, '<h2 class="text-2xl font-semibold gradient-text mb-4 mt-10">')
-                  .replace(/<\/h2><\/p>/g, '</h2>')
-                  .replace(/<p>### /g, '<h3 class="text-xl font-semibold mb-3 mt-8">')
-                  .replace(/<\/h3><\/p>/g, '</h3>')
-                  .replace(/<p>\*\*(.*?)\*\*:/g, '<p><strong class="text-primary">$1:</strong>')
-                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                  .replace(/\*(.*?)\*/g, '<em>$1</em>')
-              }} 
-            />
+            <article className="prose prose-lg max-w-none">
+              {renderContent(content)}
+            </article>
           </div>
         </div>
       </section>
