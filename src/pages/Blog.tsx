@@ -83,62 +83,11 @@ const Blog = () => {
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 gradient-text">
-            AI Video Blog
+            Blogs
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Insights, tutorials, and industry news about AI-powered video generation technology
           </p>
-        </div>
-      </section>
-
-      {/* Featured Post */}
-      <section className="pb-12 px-6">
-        <div className="container mx-auto">
-          <div className="mb-8">
-            <Badge className="bg-gradient-primary text-primary-foreground mb-4">Featured</Badge>
-            <h2 className="text-2xl font-bold mb-6">Latest Article</h2>
-          </div>
-          
-          <Card className="overflow-hidden bg-card/80 border-border hover:shadow-glow transition-all duration-300">
-            <div className="md:flex">
-              <div className="md:w-1/2">
-                <img 
-                  src={featuredPost.image} 
-                  alt={featuredPost.title}
-                  className="w-full h-64 md:h-full object-cover"
-                />
-              </div>
-              <div className="md:w-1/2 p-8">
-                <Badge className="mb-4 bg-secondary text-secondary-foreground">
-                  {featuredPost.category}
-                </Badge>
-                <h3 className="text-2xl font-bold mb-4 gradient-text">
-                  {featuredPost.title}
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  {featuredPost.excerpt}
-                </p>
-                <div className="flex items-center space-x-6 mb-6 text-sm text-muted-foreground">
-                  <div className="flex items-center space-x-2">
-                    <User className="w-4 h-4" />
-                    <span>{featuredPost.author}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>{featuredPost.date}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Clock className="w-4 h-4" />
-                    <span>{featuredPost.readTime}</span>
-                  </div>
-                </div>
-                <Button className="bg-gradient-primary text-primary-foreground hover:opacity-90">
-                  Read Article
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-            </div>
-          </Card>
         </div>
       </section>
 
