@@ -108,45 +108,13 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Blog Posts Grid */}
+      {/* Blog Posts Grid - To be populated with new articles */}
       <section className="pb-20 px-6">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Recent Articles</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <Card key={index} className="overflow-hidden bg-card/80 border-border hover:border-primary/50 hover:shadow-glow transition-all duration-300 group">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={post.image} 
-                    alt={post.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <Badge className="absolute top-3 left-3 bg-accent text-accent-foreground">
-                    {post.category}
-                  </Badge>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
-                    <div className="flex items-center space-x-4">
-                      <span>{post.author}</span>
-                      <span>{post.date}</span>
-                    </div>
-                    <span>{post.readTime}</span>
-                  </div>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary hover:text-primary/80">
-                    Read More
-                    <ArrowRight className="w-3 h-3 ml-1" />
-                  </Button>
-                </div>
-              </Card>
-            ))}
+            {/* Articles will be added here */}
           </div>
         </div>
       </section>
