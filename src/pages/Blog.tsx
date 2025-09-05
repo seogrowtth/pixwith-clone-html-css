@@ -6,74 +6,100 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, User, ArrowRight } from "lucide-react";
 
 const Blog = () => {
-  const featuredPost = {
-    title: "The Complete Guide to AI Video Generation in 2025",
-    excerpt: "Everything you need to know about transforming static images into dynamic videos using artificial intelligence. From basic concepts to advanced techniques.",
-    author: "Sarah Chen",
-    date: "March 15, 2025",
-    readTime: "8 min read",
-    category: "Guide",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop"
-  };
-
   const blogPosts = [
     {
-      title: "5 Creative Ways to Use AI Video Generation for Marketing",
-      excerpt: "Discover innovative marketing strategies using AI-generated videos that boost engagement and drive conversions.",
+      title: "Best AI Tools to Animate Images into Videos (2025 Guide)",
+      excerpt: "Discover the top AI-powered platforms that are revolutionizing image-to-video animation with cutting-edge technology and user-friendly interfaces.",
+      author: "Sarah Chen",
+      date: "March 15, 2025",
+      readTime: "8 min read",
+      category: "Guide",
+      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop"
+    },
+    {
+      title: "How Image to Video AI is Transforming Social Media Marketing",
+      excerpt: "Explore how brands are leveraging AI video generation to create engaging social media content that drives higher engagement rates.",
       author: "Mark Rodriguez", 
       date: "March 12, 2025",
-      readTime: "5 min read",
+      readTime: "6 min read",
       category: "Marketing",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop"
     },
     {
-      title: "Technical Deep Dive: How Neural Networks Create Motion",
-      excerpt: "An in-depth look at the machine learning algorithms powering modern image-to-video AI technology.",
-      author: "Dr. Alex Kim",
-      date: "March 10, 2025", 
-      readTime: "12 min read",
-      category: "Technology",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop"
-    },
-    {
-      title: "Case Study: How TechCorp Increased Engagement by 300%",
-      excerpt: "Learn how one company transformed their social media strategy using AI-generated video content.",
+      title: "Step-by-Step: How to Turn a Still Photo into a Cinematic Video",
+      excerpt: "A comprehensive tutorial on transforming ordinary photographs into professional-quality cinematic videos using AI technology.",
       author: "Jennifer Walsh",
-      date: "March 8, 2025",
-      readTime: "6 min read", 
-      category: "Case Study",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop"
-    },
-    {
-      title: "The Future of Content Creation: Trends to Watch",
-      excerpt: "Explore emerging trends in AI-powered content creation and what they mean for creators and businesses.",
-      author: "Michael Park",
-      date: "March 5, 2025",
-      readTime: "7 min read",
-      category: "Trends",
-      image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=250&fit=crop"
-    },
-    {
-      title: "Best Practices: Optimizing Images for AI Video Generation",
-      excerpt: "Professional tips for preparing your images to get the best results from AI video generation tools.",
-      author: "Lisa Thompson",
-      date: "March 3, 2025",
-      readTime: "4 min read",
+      date: "March 10, 2025", 
+      readTime: "10 min read",
       category: "Tutorial",
       image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=250&fit=crop"
     },
     {
-      title: "Industry Analysis: AI Video Tools Market Report 2025",
-      excerpt: "Comprehensive analysis of the AI video generation market, key players, and growth projections.",
+      title: "Top 5 Motion Styles Every Creator Should Try with AI Video Generators",
+      excerpt: "Master the essential motion styles that will elevate your content and captivate your audience across different platforms.",
+      author: "Dr. Alex Kim",
+      date: "March 8, 2025",
+      readTime: "7 min read", 
+      category: "Creative",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop"
+    },
+    {
+      title: "Why Short-Form Video Beats Static Images for Engagement",
+      excerpt: "Data-driven insights into why video content consistently outperforms static images in user engagement and conversion rates.",
+      author: "Michael Park",
+      date: "March 5, 2025",
+      readTime: "5 min read",
+      category: "Analysis",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop"
+    },
+    {
+      title: "Image to Video AI vs Traditional Animation: Which is Right for You?",
+      excerpt: "Compare the pros, cons, costs, and results of AI-generated videos versus traditional animation methods for different use cases.",
+      author: "Lisa Thompson",
+      date: "March 3, 2025",
+      readTime: "9 min read",
+      category: "Comparison",
+      image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=250&fit=crop"
+    },
+    {
+      title: "The Future of AI Video Generation: From Photos to Hollywood-Level Films",
+      excerpt: "Explore emerging technologies and trends that will shape the future of AI video generation and its impact on entertainment.",
       author: "Robert Chen",
       date: "March 1, 2025",
-      readTime: "10 min read",
-      category: "Analysis",
+      readTime: "8 min read",
+      category: "Technology",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop"
+    },
+    {
+      title: "How Artists & Designers Are Using Image to Video AI to Showcase Portfolios",
+      excerpt: "Real-world examples of creative professionals leveraging AI video generation to enhance their portfolio presentations.",
+      author: "Emma Davis",
+      date: "February 28, 2025",
+      readTime: "6 min read",
+      category: "Portfolio",
+      image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=250&fit=crop"
+    },
+    {
+      title: "10 Creative Marketing Campaigns Powered by Image to Video AI",
+      excerpt: "Inspiring case studies of innovative marketing campaigns that achieved remarkable results using AI-generated video content.",
+      author: "David Wilson",
+      date: "February 25, 2025",
+      readTime: "7 min read",
+      category: "Case Study",
+      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=250&fit=crop"
+    },
+    {
+      title: "Choosing the Best AI Image Animator: Features, Specs, and Pricing Compared",
+      excerpt: "Comprehensive comparison of leading AI image animation platforms to help you make the best choice for your needs and budget.",
+      author: "Sophie Martinez",
+      date: "February 22, 2025",
+      readTime: "12 min read",
+      category: "Review",
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop"
     }
   ];
 
-  const categories = ["All", "Guide", "Marketing", "Technology", "Case Study", "Trends", "Tutorial", "Analysis"];
+  const categories = ["All", "Guide", "Marketing", "Tutorial", "Creative", "Analysis", "Comparison", "Technology", "Portfolio", "Case Study", "Review"];
 
   return (
     <div className="min-h-screen">
@@ -108,13 +134,45 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Blog Posts Grid - To be populated with new articles */}
+      {/* Blog Posts Grid */}
       <section className="pb-20 px-6">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Recent Articles</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Articles will be added here */}
+            {blogPosts.map((post, index) => (
+              <Card key={index} className="overflow-hidden bg-card/80 border-border hover:border-primary/50 hover:shadow-glow transition-all duration-300 group">
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={post.image} 
+                    alt={post.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <Badge className="absolute top-3 left-3 bg-accent text-accent-foreground">
+                    {post.category}
+                  </Badge>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                    <div className="flex items-center space-x-4">
+                      <span>{post.author}</span>
+                      <span>{post.date}</span>
+                    </div>
+                    <span>{post.readTime}</span>
+                  </div>
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary hover:text-primary/80">
+                    Read More
+                    <ArrowRight className="w-3 h-3 ml-1" />
+                  </Button>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
